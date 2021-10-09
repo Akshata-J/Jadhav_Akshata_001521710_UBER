@@ -58,6 +58,10 @@ public class Uber {
         return lastModified;
     }    
 
+    public void setLastModified(Date lastModified) {
+        this.lastModified = lastModified;
+    }
+
     @Override
     public String toString() {
         return "Uber{" + "cars=" + cars + ", serialNumbers=" + serialNumbers + ", lastModified=" + lastModified + '}';

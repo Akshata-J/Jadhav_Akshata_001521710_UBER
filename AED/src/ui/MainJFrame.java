@@ -6,6 +6,17 @@
 package ui;
 
 import java.awt.CardLayout;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
 import model.Car;
 import model.Uber;
 
@@ -29,6 +40,7 @@ public class MainJFrame extends javax.swing.JFrame {
         card.next(mainUIPanel);
         pack();
         setLocationRelativeTo(null);
+        loadCars();
     }
 
     /**
@@ -99,4 +111,55 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel mainUIPanel;
     // End of variables declaration//GEN-END:variables
+    
+
+    private void loadCars() {
+        String line = "";
+        String splitBy = ",";
+        SimpleDateFormat f = new SimpleDateFormat("MM/dd/yyyy");
+        f.setLenient(false);
+        try {
+            File file = new File("HardCodedData.csv");
+            Scanner myReader = new Scanner(file);
+            while (myReader.hasNextLine()) {
+                line = myReader.nextLine();
+                String[] data = line.split(splitBy);
+                Long sn = null;
+                int my = 0, seats = 0;
+                Date emc = null;
+                boolean availbility = false;
+                try {
+                    sn = Long.parseLong(data[0]);
+                    my = Integer.parseInt(data[3]);
+                    seats = Integer.parseInt(data[5]);
+                    emc = f.parse(data[8]);
+                } catch (NumberFormatException | ParseException e) {
+                    continue;
+                }
+                if (data[6].equalsIgnoreCase("true")) {
+                    availbility = true;
+                }
+                Car car = new Car();
+                car.setSerialNumber(sn);
+                car.setModelNumber(data[1]);
+                car.setMake(data[2]);
+                car.setManufacturedYear(my);
+                car.setType(data[4]);
+                car.setSeats(seats);
+                car.setAvailability(availbility);
+                car.setCity(data[7]);
+                car.setMaintenanceCertificateDate(emc);
+
+                if (uber.getSerialNumbers() == null || !uber.getSerialNumbers().contains(sn)) {
+                    uber.addCarToFleet(car);
+                } 
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        if(!uber.getCars().isEmpty()){
+            uber.setLastModified(new Date());
+        }
+    }
+
 }

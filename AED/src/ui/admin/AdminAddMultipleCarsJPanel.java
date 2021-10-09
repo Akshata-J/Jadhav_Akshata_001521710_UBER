@@ -274,6 +274,10 @@ public class AdminAddMultipleCarsJPanel extends javax.swing.JPanel {
 
     private void btnUploadFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadFileActionPerformed
         filePath = getFilePath();
+        if(filePath==null){
+            JOptionPane.showMessageDialog(this, "No file selected!!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         loadCars();
         if (!illeagalEntry.isEmpty()) {
             JOptionPane.showMessageDialog(this, String.join("\n", illeagalEntry), "Illegal Data", JOptionPane.ERROR_MESSAGE);
@@ -290,6 +294,7 @@ public class AdminAddMultipleCarsJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnUploadFileActionPerformed
 
     private String getFilePath() {
+        filePath=null;
         JFileChooser fc = new JFileChooser();
         fc.setCurrentDirectory(new File(System.getProperty("user.home")));
         FileNameExtensionFilter filter = new FileNameExtensionFilter("CSV File", "CSV");
@@ -391,7 +396,7 @@ public class AdminAddMultipleCarsJPanel extends javax.swing.JPanel {
                     illeagalEntry.add(line);
                     continue;
                 }
-                if (car.getModelNumber() == null || car.getModelNumber().length() < 5) {
+                if (car.getModelNumber() == null) {
                     illeagalEntry.add(line);
                     continue;
                 }

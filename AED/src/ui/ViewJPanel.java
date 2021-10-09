@@ -6,6 +6,7 @@
 package ui;
 
 import java.awt.CardLayout;
+import java.awt.event.MouseListener;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -143,9 +144,9 @@ public class ViewJPanel extends javax.swing.JPanel {
             .addGroup(jPanelAddOptionsLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(54, 54, 54)
                 .addComponent(btnModifyDetails)
-                .addGap(34, 34, 34)
+                .addGap(55, 55, 55)
                 .addComponent(btnMenu)
                 .addGap(102, 102, 102))
         );
@@ -215,29 +216,50 @@ public class ViewJPanel extends javax.swing.JPanel {
 
         viewTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "SERIAL NUMBER", "MAKE", "SEATS CAPACITY", "CITY"
+                "Serial No.", "Model", "Car Make", "Manufacture Year", "Car Type", "Seats", "Availability", "City", "Certificate"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        viewTable.getTableHeader().setReorderingAllowed(false);
         viewTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 viewTableMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(viewTable);
+        if (viewTable.getColumnModel().getColumnCount() > 0) {
+            viewTable.getColumnModel().getColumn(0).setResizable(false);
+            viewTable.getColumnModel().getColumn(0).setPreferredWidth(25);
+            viewTable.getColumnModel().getColumn(1).setResizable(false);
+            viewTable.getColumnModel().getColumn(1).setPreferredWidth(5);
+            viewTable.getColumnModel().getColumn(2).setResizable(false);
+            viewTable.getColumnModel().getColumn(2).setPreferredWidth(5);
+            viewTable.getColumnModel().getColumn(3).setResizable(false);
+            viewTable.getColumnModel().getColumn(3).setPreferredWidth(55);
+            viewTable.getColumnModel().getColumn(4).setResizable(false);
+            viewTable.getColumnModel().getColumn(4).setPreferredWidth(5);
+            viewTable.getColumnModel().getColumn(5).setResizable(false);
+            viewTable.getColumnModel().getColumn(5).setPreferredWidth(5);
+            viewTable.getColumnModel().getColumn(6).setResizable(false);
+            viewTable.getColumnModel().getColumn(6).setPreferredWidth(25);
+            viewTable.getColumnModel().getColumn(7).setResizable(false);
+            viewTable.getColumnModel().getColumn(7).setPreferredWidth(10);
+            viewTable.getColumnModel().getColumn(8).setResizable(false);
+            viewTable.getColumnModel().getColumn(8).setPreferredWidth(65);
+        }
 
         layeredPane.setLayout(new java.awt.CardLayout());
 
@@ -271,6 +293,13 @@ public class ViewJPanel extends javax.swing.JPanel {
 
         lblCarType.setText("CAR TYPE : ");
 
+        jCheckBoxAvailability.setEnabled(false);
+        jCheckBoxAvailability.setFocusable(false);
+        jCheckBoxAvailability.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxAvailabilityMouseClicked(evt);
+            }
+        });
         jCheckBoxAvailability.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxAvailabilityActionPerformed(evt);
@@ -299,48 +328,45 @@ public class ViewJPanel extends javax.swing.JPanel {
                     .addComponent(lblMyear)
                     .addComponent(lblMake)
                     .addComponent(lblMnumber)
-                    .addGroup(layeredViewPanelLayout.createSequentialGroup()
-                        .addComponent(lblAvailability)
-                        .addGap(18, 18, 18)
-                        .addComponent(jCheckBoxAvailability)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCarType))
                     .addComponent(lblSnumber)
+                    .addGroup(layeredViewPanelLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(lblCarType))
                     .addGroup(layeredViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lblCertificate)
                         .addComponent(lblSeats, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblCity, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addComponent(lblCity, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lblAvailability))
                 .addGap(18, 18, 18)
-                .addGroup(layeredViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtSerialNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-                    .addComponent(txtModelNumber)
-                    .addComponent(txtCarMake)
-                    .addComponent(txtManufactureYear)
-                    .addComponent(txtExpiryDate)
-                    .addComponent(txtSeatCapacity)
-                    .addComponent(txtCity)
-                    .addComponent(txtType, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addGroup(layeredViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layeredViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtSerialNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                        .addComponent(txtModelNumber)
+                        .addComponent(txtCarMake)
+                        .addComponent(txtManufactureYear)
+                        .addComponent(txtExpiryDate)
+                        .addComponent(txtSeatCapacity)
+                        .addComponent(txtCity)
+                        .addComponent(txtType, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
+                    .addComponent(jCheckBoxAvailability))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
         layeredViewPanelLayout.setVerticalGroup(
             layeredViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layeredViewPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layeredViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layeredViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblCarType)
-                        .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jCheckBoxAvailability, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblAvailability, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addGroup(layeredViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCarType)
+                    .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layeredViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSnumber)
                     .addComponent(txtSerialNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layeredViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layeredViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblMnumber)
                     .addComponent(txtModelNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layeredViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMake)
                     .addComponent(txtCarMake, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -360,7 +386,11 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addGroup(layeredViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCity)
                     .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(347, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layeredViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAvailability, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBoxAvailability, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         layeredPane.add(layeredViewPanel, "card2");
@@ -465,7 +495,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                     .addComponent(jCheckBoxModifyAvailability))
                 .addGap(18, 18, 18)
                 .addComponent(btnModify)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         layeredPane.add(layeredModifyPanel, "card3");
@@ -480,7 +510,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         );
         layeredBlankPanelLayout.setVerticalGroup(
             layeredBlankPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 369, Short.MAX_VALUE)
+            .addGap(0, 372, Short.MAX_VALUE)
         );
 
         layeredPane.add(layeredBlankPanel, "card4");
@@ -498,9 +528,9 @@ public class ViewJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(layeredPane, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
+                .addComponent(layeredPane, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -627,6 +657,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         updateTable();
         JOptionPane.showMessageDialog(this, "Car details modified successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
         resetModify();
+        uber.setLastModified(new Date());
+        System.out.print(uber.getLastModified());
         
     }//GEN-LAST:event_btnModifyActionPerformed
 
@@ -635,6 +667,10 @@ public class ViewJPanel extends javax.swing.JPanel {
             type = "Rental";
         }
     }//GEN-LAST:event_jRadioButtonModifyRentalActionPerformed
+
+    private void jCheckBoxAvailabilityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxAvailabilityMouseClicked
+        
+    }//GEN-LAST:event_jCheckBoxAvailabilityMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -691,11 +727,17 @@ public class ViewJPanel extends javax.swing.JPanel {
             model.removeRow(i);
         }
         for (Car c : uber.getCars()) {
-            Object row[] = new Object[4];
+            Object row[] = new Object[10];
             row[0] = c.getSerialNumber();
-            row[1] = c.getMake();
-            row[2] = c.getSeats();
-            row[3] = c.getCity();
+            row[1] = c.getModelNumber();
+            row[2] = c.getMake();
+            row[3] = c.getManufacturedYear();
+            row[4] = c.getType();
+            row[5] = c.getSeats();
+            //row[6] = c.get
+            row[7] = c.getCity();
+            row[8] = c.getMaintenanceCertificateDate();
+            
             model.addRow(row);
         }
     }
@@ -740,8 +782,8 @@ public class ViewJPanel extends javax.swing.JPanel {
     private void editiableModifyForm(boolean b) {
         jRadioButtonModifyPassenger.setEnabled(b);
         jRadioButtonModifyRental.setEnabled(b);
-        txtModifyExpiryDate.setEditable(b);
-        jComboBoxModifyCity.setEditable(b);
+        txtModifyExpiryDate.setEnabled(b);
+        jComboBoxModifyCity.setEnabled(b);
         jCheckBoxModifyAvailability.setEnabled(b);
     }
     
