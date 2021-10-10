@@ -66,6 +66,7 @@ public class SearchJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         availabilityOfCarsPane = new javax.swing.ButtonGroup();
+        jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jTextFieldTitle = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
@@ -79,6 +80,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         btnLastUpdate = new javax.swing.JButton();
         btnCarinCity = new javax.swing.JButton();
         btnExpMainCert = new javax.swing.JButton();
+        btnthisUber = new javax.swing.JButton();
         jTextFieldFilter = new javax.swing.JTextField();
         layeredPane = new javax.swing.JLayeredPane();
         jPanelManuYear = new javax.swing.JPanel();
@@ -148,8 +150,23 @@ public class SearchJPanel extends javax.swing.JPanel {
         jScrollPane8 = new javax.swing.JScrollPane();
         serialNumberTable = new javax.swing.JTable();
         txtSerialNumberSearch = new javax.swing.JTextField();
+        jPanelMakeUber = new javax.swing.JPanel();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         btnCarMake1 = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -253,6 +270,13 @@ public class SearchJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnthisUber.setText("Make in this Uber");
+        btnthisUber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnthisUberActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -269,23 +293,25 @@ public class SearchJPanel extends javax.swing.JPanel {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(btnAvailCars, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnCarinCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(btnAvailPassCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnExpMainCert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCarinCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnMNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLastUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnMNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnthisUber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCarMake, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnAvailPassCar, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)
+                        .addComponent(btnExpMainCert, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCarMake)))
+                        .addComponent(btnLastUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29))
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAvailCars, btnCarMake, btnLastUpdate, btnMNumber, btnSeats});
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAvailCars, btnCarMake, btnMNumber, btnSeats});
 
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,7 +319,8 @@ public class SearchJPanel extends javax.swing.JPanel {
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAvailPassCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExpMainCert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnExpMainCert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLastUpdate))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnMNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -306,7 +333,7 @@ public class SearchJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnCarinCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnSeats)
-                        .addComponent(btnLastUpdate)))
+                        .addComponent(btnthisUber)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -406,7 +433,7 @@ public class SearchJPanel extends javax.swing.JPanel {
             .addGroup(jPanelManuYearLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                 .addGroup(jPanelManuYearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(manufactureYearSearchBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(manufactureYearList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -497,7 +524,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         jPanelMNumberLayout.setVerticalGroup(
             jPanelMNumberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMNumberLayout.createSequentialGroup()
-                .addComponent(jTextField11, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                .addComponent(jTextField11, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                 .addGap(11, 11, 11)
                 .addGroup(jPanelMNumberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnModelSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -537,7 +564,7 @@ public class SearchJPanel extends javax.swing.JPanel {
             .addGroup(jPanelLastUpdateLayout.createSequentialGroup()
                 .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtLastUpdatedDateAndTime, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE))
+                .addComponent(txtLastUpdatedDateAndTime, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE))
         );
 
         layeredPane.add(jPanelLastUpdate, "card11");
@@ -604,7 +631,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         jPanelAvailPassCarLayout.setVerticalGroup(
             jPanelAvailPassCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAvailPassCarLayout.createSequentialGroup()
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -701,7 +728,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         jPanelSeatsLayout.setVerticalGroup(
             jPanelSeatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSeatsLayout.createSequentialGroup()
-                .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanelSeatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -795,7 +822,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         jPanelCarinCityLayout.setVerticalGroup(
             jPanelCarinCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCarinCityLayout.createSequentialGroup()
-                .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                 .addGap(11, 11, 11)
                 .addGroup(jPanelCarinCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(carInACitySearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -907,7 +934,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         jPanelAvailCarsLayout.setVerticalGroup(
             jPanelAvailCarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAvailCarsLayout.createSequentialGroup()
-                .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelAvailCarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelAvailCarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1006,7 +1033,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         jPanelCarMakeLayout.setVerticalGroup(
             jPanelCarMakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCarMakeLayout.createSequentialGroup()
-                .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelCarMakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(carMakeSearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1101,7 +1128,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         );
         jPanelExpMainCertLayout.setVerticalGroup(
             jPanelExpMainCertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 306, Short.MAX_VALUE)
+            .addGap(0, 374, Short.MAX_VALUE)
             .addGroup(jPanelExpMainCertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelExpMainCertLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1121,7 +1148,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         );
         jPanelBlankLayout.setVerticalGroup(
             jPanelBlankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 306, Short.MAX_VALUE)
+            .addGap(0, 374, Short.MAX_VALUE)
         );
 
         layeredPane.add(jPanelBlank, "card8");
@@ -1212,11 +1239,50 @@ public class SearchJPanel extends javax.swing.JPanel {
                     .addComponent(serialNumberSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Manufacturer3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtSerialNumberSearch, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(18, 18, 18)
+                .addGap(86, 86, 86)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         layeredPane.add(jPanelSNumber, "card8");
+
+        jPanelMakeUber.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTextField9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jTextField9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField9.setText("CAR MAKES IN THIS UBER");
+        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField9ActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("MAKES OF CAR IN THIS UBER : ");
+
+        javax.swing.GroupLayout jPanelMakeUberLayout = new javax.swing.GroupLayout(jPanelMakeUber);
+        jPanelMakeUber.setLayout(jPanelMakeUberLayout);
+        jPanelMakeUberLayout.setHorizontalGroup(
+            jPanelMakeUberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
+            .addGroup(jPanelMakeUberLayout.createSequentialGroup()
+                .addGap(194, 194, 194)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelMakeUberLayout.setVerticalGroup(
+            jPanelMakeUberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMakeUberLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
+                .addGroup(jPanelMakeUberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(256, 256, 256))
+        );
+
+        layeredPane.add(jPanelMakeUber, "card13");
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -1603,6 +1669,31 @@ public class SearchJPanel extends javax.swing.JPanel {
         populateTable(modelSearchTable, cars);
     }//GEN-LAST:event_btnModelSearchActionPerformed
 
+    private void btnthisUberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthisUberActionPerformed
+        // TODO add your handling code here:
+       displayPanel(jPanelMakeUber);
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+        Set<String> data = new HashSet<String>();
+        for (Car c : uber.getCars()) {
+            data.add(c.getMake().toUpperCase());
+        }
+        
+        System.out.println(data);
+    }//GEN-LAST:event_btnthisUberActionPerformed
+
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Manufacturer;
@@ -1626,6 +1717,7 @@ public class SearchJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnModelSearch;
     private javax.swing.JButton btnSNumber;
     private javax.swing.JButton btnSeats;
+    private javax.swing.JButton btnthisUber;
     private java.awt.Choice carInACityList;
     private javax.swing.JButton carInACitySearchBtn;
     private java.awt.Choice carMakeAllManufacturesList;
@@ -1637,9 +1729,11 @@ public class SearchJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanelAvailCars;
     private javax.swing.JPanel jPanelAvailPassCar;
     private javax.swing.JPanel jPanelAvailPassCar1;
@@ -1649,6 +1743,7 @@ public class SearchJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanelExpMainCert;
     private javax.swing.JPanel jPanelLastUpdate;
     private javax.swing.JPanel jPanelMNumber;
+    private javax.swing.JPanel jPanelMakeUber;
     private javax.swing.JPanel jPanelManuYear;
     private javax.swing.JPanel jPanelSNumber;
     private javax.swing.JPanel jPanelSeats;
@@ -1664,6 +1759,7 @@ public class SearchJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -1671,6 +1767,7 @@ public class SearchJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField jTextFieldFilter;
     private javax.swing.JTextField jTextFieldTitle;
     private javax.swing.JLayeredPane layeredPane;

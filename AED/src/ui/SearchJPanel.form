@@ -4,6 +4,21 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="availabilityOfCarsPane">
     </Component>
+    <Container class="javax.swing.JPanel" name="jPanel4">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
   </NonVisualComponents>
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -119,24 +134,26 @@
                               </Group>
                               <Component id="btnCarinCity" max="32767" attributes="0"/>
                           </Group>
-                      </Group>
-                      <Component id="btnAvailPassCar" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnExpMainCert" max="32767" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="btnSeats" linkSize="6" min="-2" pref="142" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnMNumber" linkSize="6" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
+                              <Component id="btnSeats" linkSize="6" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnLastUpdate" linkSize="6" min="-2" pref="165" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnthisUber" max="32767" attributes="0"/>
+                              <Component id="btnCarMake" linkSize="6" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="btnMNumber" linkSize="6" min="-2" pref="132" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="btnAvailPassCar" min="-2" pref="175" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                          <Component id="btnExpMainCert" min="-2" pref="224" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnCarMake" linkSize="6" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnLastUpdate" min="-2" pref="180" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -147,6 +164,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnAvailPassCar" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnExpMainCert" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnLastUpdate" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -161,7 +179,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnCarinCity" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnSeats" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnLastUpdate" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnthisUber" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -271,6 +289,14 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExpMainCertActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JButton" name="btnthisUber">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Make in this Uber"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnthisUberActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="jTextFieldFilter">
@@ -329,7 +355,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jTextField8" min="-2" pref="45" max="-2" attributes="0"/>
-                      <EmptySpace pref="32" max="32767" attributes="0"/>
+                      <EmptySpace pref="96" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="manufactureYearSearchBtn" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
                           <Component id="manufactureYearList" alignment="1" max="32767" attributes="0"/>
@@ -480,7 +506,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jTextField11" pref="62" max="32767" attributes="0"/>
+                      <Component id="jTextField11" pref="130" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="btnModelSearch" alignment="1" min="-2" pref="27" max="-2" attributes="0"/>
@@ -627,7 +653,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jTextField7" min="-2" pref="78" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtLastUpdatedDateAndTime" pref="222" max="32767" attributes="0"/>
+                      <Component id="txtLastUpdatedDateAndTime" pref="290" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -678,7 +704,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jTextField1" pref="61" max="32767" attributes="0"/>
+                      <Component id="jTextField1" pref="129" max="32767" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="245" max="-2" attributes="0"/>
                   </Group>
@@ -813,7 +839,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jTextField6" pref="60" max="32767" attributes="0"/>
+                      <Component id="jTextField6" pref="128" max="32767" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -984,7 +1010,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jTextField5" pref="62" max="32767" attributes="0"/>
+                      <Component id="jTextField5" pref="130" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="carInACitySearchBtn" alignment="1" min="-2" pref="27" max="-2" attributes="0"/>
@@ -1146,7 +1172,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jTextField3" pref="56" max="32767" attributes="0"/>
+                      <Component id="jTextField3" pref="120" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1329,7 +1355,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jTextField4" pref="62" max="32767" attributes="0"/>
+                      <Component id="jTextField4" pref="130" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="carMakeSearchButton" min="-2" pref="27" max="-2" attributes="0"/>
@@ -1477,7 +1503,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="306" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="374" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -1628,7 +1654,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="306" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="374" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1671,7 +1697,7 @@
                           <Component id="Manufacturer3" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtSerialNumberSearch" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                       <Component id="jScrollPane8" min="-2" pref="188" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1782,6 +1808,68 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtSerialNumberSearch">
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanelMakeUber">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card13"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jTextField9" alignment="0" pref="768" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="194" max="-2" attributes="0"/>
+                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jTextField12" min="-2" pref="235" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jTextField9" pref="61" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JTextField" name="jTextField9">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="18" style="1"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="CAR MAKES IN THIS UBER"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField9ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="MAKES OF CAR IN THIS UBER : "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField12">
             </Component>
           </SubComponents>
         </Container>

@@ -329,9 +329,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                     .addComponent(lblMake)
                     .addComponent(lblMnumber)
                     .addComponent(lblSnumber)
-                    .addGroup(layeredViewPanelLayout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(lblCarType))
+                    .addComponent(lblCarType)
                     .addGroup(layeredViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lblCertificate)
                         .addComponent(lblSeats, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -441,6 +439,12 @@ public class ViewJPanel extends javax.swing.JPanel {
 
         lblCertificate1.setText("EXPIRY OF MAINTENANCE CERTIFICATE : ");
 
+        txtModifyExpiryDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtModifyExpiryDateActionPerformed(evt);
+            }
+        });
+
         lblCarType2.setText("CAR TYPE : ");
 
         javax.swing.GroupLayout layeredModifyPanelLayout = new javax.swing.GroupLayout(layeredModifyPanel);
@@ -519,7 +523,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(layeredPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(layeredPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
@@ -623,10 +627,14 @@ public class ViewJPanel extends javax.swing.JPanel {
             return;
         }
         
-        Date afterYear = Date.from(LocalDate.now().plusYears(1).atStartOfDay()
-                .atZone(ZoneId.systemDefault()).toInstant());
-        if (!emc.after(afterYear)) {
-            message.add("Expiry Date should be after " + (new SimpleDateFormat("MM/dd/yyyy")).format(afterYear));
+//        Date afterYear = Date.from(LocalDate.now().plusYears(1).atStartOfDay()
+//                .atZone(ZoneId.systemDefault()).toInstant());
+ 
+        Date d = new Date();
+ 
+ 
+        if (emc.before(d)) {
+            message.add("Expiry Date should be after " + (new SimpleDateFormat("MM/dd/yyyy")).format(d));
         }
         
         if(((String)jComboBoxModifyCity.getSelectedItem()).equalsIgnoreCase("Select")){
@@ -671,6 +679,10 @@ public class ViewJPanel extends javax.swing.JPanel {
     private void jCheckBoxAvailabilityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxAvailabilityMouseClicked
         
     }//GEN-LAST:event_jCheckBoxAvailabilityMouseClicked
+
+    private void txtModifyExpiryDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModifyExpiryDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtModifyExpiryDateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -734,9 +746,10 @@ public class ViewJPanel extends javax.swing.JPanel {
             row[3] = c.getManufacturedYear();
             row[4] = c.getType();
             row[5] = c.getSeats();
-            //row[6] = c.get
+            row[6] = c.isAvailability();
             row[7] = c.getCity();
-            row[8] = c.getMaintenanceCertificateDate();
+            //row[8] = c.getMaintenanceCertificateDate();
+            row[8] = new SimpleDateFormat("MM/dd/yyyy").format(c.getMaintenanceCertificateDate());
             
             model.addRow(row);
         }

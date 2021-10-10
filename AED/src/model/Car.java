@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-//latest
+//latest 1.0
 package model;
 
 import java.text.SimpleDateFormat;
